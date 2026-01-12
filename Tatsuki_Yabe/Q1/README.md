@@ -25,11 +25,11 @@ the time complexity is $O(n)$, so this approach is more efficient than Brute For
 #### Algorism Detail
 
 The code logic follows the steps:
-1, Initialize Pointer
+- 1, Initialize Pointer
  Set a left pointer at index 0(the beginning of the array) and right pointer at index n-1(the end of the array)
-2, Initialize Max Area and calcurate current area
+- 2, Initialize Max Area and calcurate current area
  Create a variable "maxarea" to store maximum water capacity, which you can calcurate current area between left pointer and right pointer.
-3, Loop
+- 3, Loop
  Continue to move the pointer while left < right and update maxarea. If the width was decreased, the height would be increased to maximize the area.
-4, Return
+- 4, Return
  Once the pointers meet, return maxarea
