@@ -1,3 +1,7 @@
+# 以下は README のテンプレート。問題の概要や解き方を README で書き記す
+
+---
+
 # [Problem No.] [Problem Title] (Difficulty)
 
 ## 🔗 Problem Link
