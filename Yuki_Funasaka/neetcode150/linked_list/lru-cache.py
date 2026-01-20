@@ -22,25 +22,53 @@ https://neetcode.io/problems/lru-cache/question?list=neetcode150
 
 class LRUCache:
 
+    # 1st try
+    # def __init__(self, capacity: int):
+    #     self.hashmap = {}
+    #     self.array = []
+    #     self.capacity = capacity
+
+    # def get(self, key: int) -> int:
+    #     if key in self.hashmap:
+    #         return self.hashmap[key]
+    #     return -1
+
+    # def put(self, key: int, value: int) -> None:
+    #     """
+    #     if len(array) == capacity, 
+    #     we have to remove a old item and add a new item
+    #     we append a new item into array
+    #     """
+    #     if len(self.array) == self.capacity:
+    #         old_key = self.array[0]
+    #         self.hashmap.pop(old_key)
+    #         self.array = self.array[1:]
+    #     self.array.append(key)
+    #     self.hashmap[key] = value
+
+
+    # brute force
     def __init__(self, capacity: int):
-        self.hashmap = {}
-        self.array = []
+        self.cache = []
         self.capacity = capacity
 
     def get(self, key: int) -> int:
-        if key in self.hashmap:
-            return self.hashmap[key]
+        for i in range(len(self.cache)):
+            if self.cache[i][0] == key:
+                tmp = self.cache.pop(i)
+                self.cache.append(tmp)
+                return tmp[1]
         return -1
 
     def put(self, key: int, value: int) -> None:
-        """
-        if len(array) == capacity, 
-        we have to remove a old item and add a new item
-        we append a new item into array
-        """
-        if len(self.array) == self.capacity:
-            old_key = self.array[0]
-            self.hashmap.pop(old_key)
-            self.array = self.array[1:]
-        self.array.append(key)
-        self.hashmap[key] = value
+        for i in range(len(self.cache)):
+            if self.cache[i][0] == key:
+                tmp = self.cache.pop(i)
+                tmp[1] = value
+                self.cache.append(tmp)
+                return
+
+        if self.capacity == len(self.cache):
+            self.cache.pop(0) # at least latest item
+
+        self.cache.append([key, value])
