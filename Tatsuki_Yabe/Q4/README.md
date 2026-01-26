@@ -6,11 +6,11 @@
 
 ## 💡 Problem Summary
 
-Given an integer array and this contains one or more zeros and non-zero elements. We must move all zeros to the end of the array maintaining the relative positions of others. The important constraint is not to make the copy of the array
+Given an integer array nums containing zeroes and non-zero elements, we must move all zeroes to the end of the array while maintaining the relative order of the non-zero elements. The important constraint is that we must do this in-place without making a copy of the array.
 
 <details>
 <summary>AI添削前</summary>
-Given an integer array nums containing zeroes and non-zero elements, we must move all zeroes to the end of the array while maintaining the relative order of the non-zero elements. The important constraint is that we must do this in-place without making a copy of the array.
+Given an integer array and this contains one or more zeros and non-zero elements. We must move all zeros to the end of the array maintaining the relative positions of others. The important constraint is not to make the copy of the array
 </details>
 
 **Constraints:**
@@ -36,17 +36,21 @@ The code logic follows these steps:
 - 1, **Initialize "Left" Pointer**
   Set a left pointer at index 0(the beginning of the array). This pointer will track the position where the next non-zero element should be placed.
 - 2, **Iterate and Overwrite Non-Zero**
-  Continue to move to meet non-zero numbers in the nums array and if met,
-  - Swap the non-zero number with the number at the left pointer
-  - Move left pointer to right by 1
+  Iterate through each element v in the nums array. Whenever v is not zero:
+  - Overwrite the element at the left pointer with v (nums[left] = v).
+  - Increment the left pointer by 1.
 
     <details>
   <summary>AI添削前</summary>
   Iterate through each element v in the nums array. Whenever v is not zero:
 
-- Overwrite the element at the left pointer with v (nums[left] = v).
-- Increment the left pointer by 1.
-</details>
+  - Overwrite the element at the left pointer with v (nums[left] = v).
+  - Increment the left pointer by 1.
+
+  Continue to move to meet non-zero numbers in the nums array and if met,
+  - Swap the non-zero number with the number at the left pointer
+  - Move left pointer to right by 1
+  </details>
 
 - 3, **Fill the Rest with Zeroes**
   After the loop, all non-zero elements are correctly placed at the beginning of the array. Now we iterate from the current left pointer to the end of the array and set all remaining elements to 0.
