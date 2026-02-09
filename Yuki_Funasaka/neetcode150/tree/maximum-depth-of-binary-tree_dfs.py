@@ -33,7 +33,8 @@ class Solution:
         # recursive case
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
-        """
-        We can solve in another way.
-        Using breadth first search.
-        """
+
+"""
+We can solve in another way.
+Using breadth first search.
+"""        

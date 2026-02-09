@@ -46,6 +46,11 @@ class LRUCache:
     #     self.array.append(key)
     #     self.hashmap[key] = value
 
+    """
+    ダメポイント
+    最近使った順を管理しないといけなかった
+    You need to track the order of recently used items
+    """
 
     # brute force
     def __init__(self, capacity: int):
@@ -72,3 +77,6 @@ class LRUCache:
             self.cache.pop(0) # at least latest item
 
         self.cache.append([key, value])
+
+    # Doubly linked list
+    
