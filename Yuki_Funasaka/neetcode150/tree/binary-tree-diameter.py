@@ -26,8 +26,8 @@ https://neetcode.io/problems/binary-tree-diameter/question?list=neetcode150
 #         self.right = right
 
 
-class Solution:
-    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+# class Solution:
+#     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         """
         Return the diameter of the tree.
         This means return the longest number of edges between two nodes.
@@ -46,8 +46,8 @@ class Solution:
         """
 
         # edge case
-        if not (root.left and root.right):
-            return 0
+        # if not (root.left and root.right):
+        #     return 0
 
         # recursive case
         """
@@ -55,3 +55,35 @@ class Solution:
         self.diameterOfBinaryTree(root.left)
         self.diameterOfBinaryTree(root.right)
         """
+
+"""
+After asking Gemini, here is breakdown of my thought process
+and how to bridge the gap to the working solution. (<- this expression is really useful for me! let me use next time!)
+
+core concept
+`diameter = left height + right height`
+
+How to make recursive function? -> a funcion for getting height
+"""
+
+
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.max_d = 0
+
+        def getHeight(node: Optional[TreeNode]):
+            if not node:
+                return 0
+
+            h_l = getHeight(node.left)
+            h_r = getHeight(node.right)
+
+            d = h_l + h_r
+
+            self.max_d = max(self.max_d, d)
+
+            return 1 + max(h_l, h_r)
+
+        getHeight(root)
+
+        return self.max_d
