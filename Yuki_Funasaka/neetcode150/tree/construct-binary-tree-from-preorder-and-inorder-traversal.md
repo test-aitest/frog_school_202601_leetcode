@@ -1,5 +1,5 @@
 # Construct Binary Tree from Preorder and Inorder Traversal
-https://youtu.be/gZx6jMdHPpM
+[![Construct Binary Tree from Preorder and Inorder Traversal](https://img.youtube.com/vi/gZx6jMdHPpM/0.jpg)](https://youtu.be/gZx6jMdHPpM)
 
 # Understand Match
 
