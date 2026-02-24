@@ -87,3 +87,49 @@ class Solution:
         return res
       
 ```
+
+# Revisiting
+In the previous video, we implemented this without passing subset as an argument, but we can also include it.
+
+1. Passing as an Argument
+- The function becomes more self-contained and explicit.It clearly defines what state the DFS is currently oprating on.
+- It keeps the function pure in the sense that it doesn't rely on variables hidden in the outer scope.
+
+2. Using outer scope variable
+- Defining subset in the outer scope makes the function signature cleaner and more concise. We don't have to pass the same reference over and over again. 
+- In this case, the DFS function modifies the shared state directory. Since Python lists are mutable, it works perfectly fine as long as we manage the append and pop operations correctly.
+
+it’s a matter of preference. Both approaches have the same time and space complexity because they both operate on the same list reference in memory.
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        
+        def dfs(i, subset):
+            # base case
+            # ending condition
+            if i >= len(nums):
+                res.append(subset.copy())
+                return
+            
+            # pick up
+            # add nums[i] to subset 
+            # we call dfs and pass the next input value
+            subset.append(nums[i])
+            dfs(i + 1, subset)
+
+            # Not pick up
+            # remove nums[i] from subset
+            # we call dfs and pass the next input value
+            subset.pop()
+            dfs(i + 1, subset)
+            
+        # we call dfs and pass the first index
+        dfs(0, [])
+        # return res 
+        return res
+```
+
+Earliar we mentioned the space complexity is O(n * 2^n). But if we don't include the output list, it's O(n) because recursive depth is n at most.
+If we include the output list, the output list has 2^n numbers of subset and the average size of subset is n/2 and we can ignore constant. So it's O(2^n * n)
