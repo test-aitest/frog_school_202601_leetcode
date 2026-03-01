@@ -17,7 +17,7 @@ nums = [] res = False
 
 # Plan
 First we can use brute force approach.
-We look up each element, from index 0 to last element.
+We iterate each element, from index 0 to last element.
 For instance, when index is 0, currrent value is 1.
 We verify the current value against other each element.
 So we use nested loop. If the current value match another value, we can return True.
