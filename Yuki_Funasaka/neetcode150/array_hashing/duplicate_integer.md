@@ -2,7 +2,7 @@
 
 # Understand Match
 ## question
-- If nums are empty, what should we return? 
+- If nums are empty, what should we return?
 - How many intergers does nums contain at most and at least?
 
 ## happy path
@@ -16,6 +16,8 @@ nums = [] res = False
 ## constraints
 
 # Plan
+
+### Brute force
 First we can use brute force approach.
 We iterate each element, from index 0 to last element.
 For instance, when index is 0, currrent value is 1.
@@ -38,8 +40,8 @@ So we'd like to choose more efficient approach.
 If we store previous elements we've already check, we can verify more efficiently.
 So we can use hashset.
 
-Pseudocode is here.
-
+### Hashset
+pseudocode is here.
 ```
 hashset = set()
 for i to len(nums)
@@ -54,8 +56,8 @@ With brute force approach, the space complexity is O(1). It's really small. But 
 
 Which approach is better?
 
-I think if the length of nums is greater than 10^4, we should choose hash set approach.
-But less than 10^4, we can choose brute force approach.
+If n is greater than 10^4, we should choose hash set approach.
+But less than 10^4, we can choose brute force approach. It's called the "10^8 Rule"(Ten to the power of eight rule).
 
 # Implement
 ```python
