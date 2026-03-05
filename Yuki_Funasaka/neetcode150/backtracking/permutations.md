@@ -1,4 +1,6 @@
 # Permutations
+[![Permutations](https://img.youtube.com/vi/hU8KutfT0Ow/0.jpg)](https://youtu.be/hU8KutfT0Ow)
+
 # Understand Match
 First let me clarify the problem.
 - array of distinct intergers
@@ -83,7 +85,22 @@ class Solution:
             
         return res
 
+```
 
+# Review Evaluate
+Dry Run:
+Let's trace this with [1, 2]. We pop 1, call permute([2]). Base case returns [[2]]. We append 1 to get [2, 1]. Then we backtrack...
+
+Complexity:
+Time Complexity: O(n * n!) because there are n! permutations and we spend O(n) to build each one.
+Space Complexity: O(n!) to store the results, and the recursion stack depth will be O(n).
+
+Trade-offs/Alternative:
+I could also use a used boolean array or a set to keep track of elements, which is also a very standard way to solve backtracking.
+
+
+
+```
 # NeetCode
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
@@ -107,14 +124,3 @@ class Solution:
                 res.append(p_copy)
         return res    
 ```
-
-# Review Evaluate
-Dry Run:
-Let's trace this with [1, 2]. We pop 1, call permute([2]). Base case returns [[2]]. We append 1 to get [2, 1]. Then we backtrack...
-
-Complexity:
-Time Complexity: O(n * n!) because there are n! permutations and we spend O(n) to build each one.
-Space Complexity: O(n!) to store the results, and the recursion stack depth will be O(n).
-
-Trade-offs/Alternative:
-I could also use a used boolean array or a set to keep track of elements, which is also a very standard way to solve backtracking.
