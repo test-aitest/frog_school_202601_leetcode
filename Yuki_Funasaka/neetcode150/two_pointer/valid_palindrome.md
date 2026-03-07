@@ -27,7 +27,7 @@ The brute force approach would be to first clean the string.
 And validate if the string is alphanumeric, convert to lower case.
 Finally, we check if the cleaned string equals its reverse.
 
-```
+```python
 clean = []
 for c in s:
     if c.isalnum():
@@ -40,7 +40,7 @@ It's using an extra memory. If possible, we want to work this in O(n) space comp
 That's where two pointer moving from both right and left end to the center.
 
 ### Two pointer
-```
+```python
 l, r = 0, len(s)
 
 while l < r:
@@ -55,11 +55,45 @@ while l < r:
         return False
     l += 1
     r -= 1
+
+return True
 ```
 
 # Implement
+PseudoCode is implement.
+So let's review and evaluate
+
 # Review Evaluate
+Both approaches work in O(n) time complexity.
+BF approach iterate the number of length of string s. O(n)
+Two pointer approach iterate the half of them O(n/2). So efficient a bit.
+BF is going to be use O(n) space complexity.
+Two pointer is going to be O(1) space complexity.
 
+So Two pointer approach is better.
+
+# Reviewed by Gemini.
+
+## Bug
+My two pointer pseudocode has a bug.
+`r = len(s)`
+This would cause an IndexError.
+So the fix : `r = len(s) - 1`
+
+## `While` can be slightly cleaner to use inner skip non-alphanumeric.
 ```python
+l, r = 0, len(s) - 1
 
+while l < r:
+    while l < r and > not s[l].isalnum():
+        l += 1
+    while l < r and > not s[r].isalnum():
+        r -= 1
+    # both is alphanum
+    if s[l].lower() != s[r].lower():
+        return False
+    l += 1
+    r -= 1
+
+return True
 ```
