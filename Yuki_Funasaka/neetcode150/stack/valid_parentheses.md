@@ -1,4 +1,6 @@
 # Valid Parentheses
+[![Valid Parentheses](https://img.youtube.com/vi/cjpNCQ2VEH8/0.jpg)](https://youtu.be/cjpNCQ2VEH8)
+
 # Understand Match
 ## question
 - First of all how can we call these characters? '(', ')', '{', '}', '[' and ']'. -> parenthesis, curly brace, bracket
