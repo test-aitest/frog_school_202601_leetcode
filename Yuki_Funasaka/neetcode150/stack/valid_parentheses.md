@@ -130,3 +130,47 @@ return stack == []
 
 # Review Evaluate
 # Reviewed by Gemini.
+
+No: if c in map:
+Yes: if not c in map:
+
+Because `c in map` confirm if map keys contain character c or not.
+So in this case we would like to check if this is a opening bracket or not. So we should use `if not c in map` is correct.
+
+```python
+stack = []
+
+pair = {')':'(', '}':'{', ']':'['}
+for c in s:
+    # `in` can be used to confirm whether the map is contained in the value or not.
+    if not c in map:
+        stack.append(c)
+        continue
+    else:
+        if stack and stack[-1] == pair[c]:
+            stack.pop()
+        else:
+            return False
+
+return stack == []
+```
+
+More simply coding
+
+```python
+stack = []
+
+pair = {')':'(', '}':'{', ']':'['}
+for c in s:
+    # `in` can be used to confirm whether the map is contained in the value or not.
+    if c in map: # c is a closing bracket
+        if stack and stack[-1] == pair[c]:
+            stack.pop()
+        else:
+            return False
+    else: # c is a opening bracket
+        stack.append(c)
+        
+
+return stack == []
+```
