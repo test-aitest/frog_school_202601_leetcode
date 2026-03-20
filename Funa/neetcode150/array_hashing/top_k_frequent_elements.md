@@ -1,4 +1,5 @@
 # Top K Frequent Elements
+[![Top K Frequent Elements](https://img.youtube.com/vi/W2yApVTZEXg/0.jpg)](https://youtu.be/W2yApVTZEXg)
 
 **reference**
 https://neetcode.io/problems/top-k-elements-in-list/question?list=neetcode150
